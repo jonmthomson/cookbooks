@@ -1,2 +1,2 @@
 # cookbooks
-A collection of Chef cookbooks. Test.
+A collection of Chef cookbooks
