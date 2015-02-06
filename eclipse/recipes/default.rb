@@ -1,13 +1,8 @@
-#
-# Cookbook Name:: eclipse-cookbook
-# Recipe:: default
-#
-# Copyright 2015, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
-include_recipe "chocolatey"
+include_recipe 'boxstarter::default'
 
-chocolatey "eclipse" do
-  retries 3
+boxstarter "boxstarter run" do
+  password 'vagrant'
+  code <<-EOH
+    cinst eclipse
+  EOH
 end
