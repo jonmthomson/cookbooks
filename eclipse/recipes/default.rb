@@ -8,4 +8,6 @@
 #
 include_recipe "chocolatey"
 
-chocolatey 'eclipse'
+chocolatey "eclipse" do
+  retries 3
+end
