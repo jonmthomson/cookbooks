@@ -1,11 +1,11 @@
-eclipse-cookbook CHANGELOG
-==========================
+eclipse CHANGELOG
+=================
 
-This file is used to list changes made in each version of the eclipse-cookbook cookbook.
+This file is used to list changes made in each version of the eclipse cookbook.
 
 0.1.0
 -----
-- [your_name] - Initial release of eclipse-cookbook
+- [your_name] - Initial release of eclipse
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
