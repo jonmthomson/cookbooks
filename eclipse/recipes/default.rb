@@ -13,11 +13,8 @@ include_recipe 'boxstarter::default'
 # Test
 
 boxstarter "boxstarter run" do
-<<<<<<< HEAD
+
   retries 3
-=======
-  # retries 3
->>>>>>> 02e29adb798329041868d7af1938ca85645b077f
   password 'vagrant'
 
   # Install-ChocolateyInstallPackage 
