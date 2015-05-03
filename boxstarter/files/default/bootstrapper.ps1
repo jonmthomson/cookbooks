@@ -11,10 +11,10 @@ function Get-Boxstarter {
             $versionArg.Version = $version
         }
 
-        cinst boxstarter.Common @versionArg -Force
-        cinst boxstarter.winconfig @versionArg -Force
-        cinst boxstarter.bootstrapper @versionArg -Force
-        cinst boxstarter.chocolatey @versionArg -Force
+        cinst boxstarter.Common @versionArg -Force -y
+        cinst boxstarter.winconfig @versionArg -Force -y
+        cinst boxstarter.bootstrapper @versionArg -Force -y
+        cinst boxstarter.chocolatey @versionArg -Force -y
         
         $Message = "Boxstarter Module Installer completed"
     }
