@@ -6,22 +6,17 @@
 # 3. Eclipse version has been specified by Chef attribute to prevent updates to the chocolatey package from breaking this
 #    recipe.
 
-raise if node['eclipse']['version'].empty? || node['eclipse']['dir'].empty?
+raise if node['eclipse']['version'].empty? #|| node['eclipse']['dir'].empty?
 
 include_recipe 'boxstarter::default'
 
-# Test
-
 boxstarter "boxstarter run" do
 
-  retries 3
+  # retries 3
   password 'vagrant'
+  disable_reboots true
 
-  # Install-ChocolateyInstallPackage 
-  # code <<-EOH
-  #   cinst eclipse -source C:\vagrant -version #{node['eclipse']['version']} -x86
-  # EOH
   code <<-EOH
-    cinst chrome
+    cinst eclipse -source C:/vagrant -version #{node['eclipse']['version']} -x86
   EOH
 end
