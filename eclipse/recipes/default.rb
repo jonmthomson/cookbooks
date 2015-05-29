@@ -17,6 +17,17 @@ boxstarter "boxstarter run" do
   disable_reboots true
 
   code <<-EOH
-    cinst eclipse -source C:/vagrant -version #{node['eclipse']['version']} -x86
+    choco install eclipse -version #{node['eclipse']['version']} -x86 --execution-timeout=7200
   EOH
 end
+
+if not node['eclipse']['plugins'].empty?
+  node['eclipse']['plugins'].each do |plugin_group|
+    repository, plugin = plugin_group.first
+    execute "eclipse plugin install" do
+      command "eclipse -application org.eclipse.equinox.p2.director -noSplash -repository #{repository} -installIUs #{plugin}"
+      action :run
+    end
+  end
+end
+
