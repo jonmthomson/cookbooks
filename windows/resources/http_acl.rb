@@ -1,9 +1,9 @@
 #
-# Author:: Seth Chisamore (<schisamo@chef.io>)
+# Author:: Richard Lavey (richard.lavey@calastone.com)
 # Cookbook Name:: windows
-# Resource:: reboot
+# Resource:: http_acl
 #
-# Copyright:: 2011, Chef Software, Inc.
+# Copyright:: 2015, Calastone Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,12 +18,10 @@
 # limitations under the License.
 #
 
-actions :request, :cancel
+actions :create, :delete
+default_action :create
 
-attribute :timeout, :kind_of => Integer, :name_attribute => true
-attribute :reason, :kind_of => String, :default => ''
+attribute :url, :kind_of => String, :name_attribute => true, :required => true
+attribute :user, :kind_of => String
 
-def initialize(name,run_context=nil)
-  super
-  @action = :request
-end
+attr_accessor :exists
