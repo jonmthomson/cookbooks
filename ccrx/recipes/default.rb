@@ -22,6 +22,13 @@ windows_package 'Renesas License Manager' do
   action  :install
 end
 
-windows_path 'C:\Program Files (x86)\Renesas\RX\2_3_0\bin' do
-  action :add
+# Add ccrx bin directory to path.
+# Note: An alternative method is the Opscode Windows Cookbook windows_path 
+# resource (commented below), but it doesn't seem to work 100% of the time.
+execute 'set ccrx_path' do
+  command "setx -m PATH \"%PATH%;C:\\Program Files (x86)\\Renesas\\RX\\2_3_0\\bin\""
 end
+
+#windows_path 'C:\Program Files (x86)\Renesas\RX\2_3_0\bin' do
+#   action :add
+# end
